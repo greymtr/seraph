@@ -14,6 +14,8 @@ printf '\n'
 printf "Endpoint [ ipv6 ] : \t"
 printf "$( curl -6 -s icanhazip.com )"
 
+printf '\n'
+
 printf "Enter Public Key of Peer : "
 read pubkey_peer
 
