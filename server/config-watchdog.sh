@@ -7,6 +7,7 @@ cd ~/seraph-wireguard
 
 while true
 do
+	wg-quick down wg-seraph
 	
 	cp head-config /etc/wireguard/wg-seraph.conf
 	
@@ -16,6 +17,7 @@ do
 		echo "" >> /etc/wireguard/wg-seraph.conf
 	done
 	
+	wg-quick up wg-seraph
 	
 	sleep 5m
 done

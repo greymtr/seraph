@@ -5,7 +5,7 @@ sudo apt -y install mosh wireguard python3-pip iptables ufw git
 
 pip3 install statsmodels numpy pandas Flask matplotlib
 
-
+mkdir ~/seraph
 mkdir ~/seraph-wireguard
 cd ~/seraph-wireguard
 mkdir peers
