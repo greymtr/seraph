@@ -13,8 +13,8 @@ http.createServer(function (req, res) {
 	var base_path = q.pathname.split("/");
 
 	//format : 
-	//	:/r/port/data			[ sent by endpoint ]
-	//	:/s/devid/port/data		[ sent by server ]
+	//	:/r/port/data			[ sent by endpoint to server ]	receive
+	//	:/s/devid/port/data		[ sent by server to endpoint ]	send
 
 
 	var command=decodeURI(base_path[1]);
@@ -60,6 +60,13 @@ http.createServer(function (req, res) {
 
 		res.writeHead(200, {'Content-Type': 'text/plain'});
 		return res.end();
+	}
+	else if( command == "s" )
+	{
+		
+		var port=decodeURI(base_path[2]);
+		var data=decodeURI(base_path[3]);
+		
 	}
 	else
 	{

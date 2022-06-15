@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt -y install mosh wireguard python3-pip iptables ufw  git
+sudo apt -y install mosh wireguard python3-pip iptables ufw git
+
+pip3 install statsmodels numpy pandas Flask matplotlib
+
 
 mkdir ~/seraph-wireguard
 cd ~/seraph-wireguard
@@ -9,6 +12,7 @@ mkdir peers
 
 umask 077
 wg genkey | tee privatekey | wg pubkey > publickey
+
 
 touch /etc/wireguard/wg-seraph.conf
 echo "[Interface]
@@ -28,6 +32,7 @@ sudo ufw allow mosh
 
 wg-quick up wg-seraph
 sudo systemctl enable wg-quick@wg-seraph
+
 
 
 

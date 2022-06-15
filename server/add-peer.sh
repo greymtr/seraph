@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 
+#Usage : add-peer.sh PeerPublicKey
+
 cd ~/seraph-wireguard
 
 pubkey_peer="$1"
-ip="$2"
+
+for i in {2..255}
+do
+	if [ ! -e peers/$i ]
+	then
+	    ip=$i
+		break
+	fi
+done
+
+echo $i
 
 echo "
 [Peer]
