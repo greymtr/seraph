@@ -28,13 +28,13 @@ clear
 echo "Public Key : $( cat publickey )"
 
 printf "Enter Endpoint : "
-read $endpoint
+read endpoint
 
 printf "Enter Gate ID : "
-read $gate_id
+read gate_id
 
 printf "Enter Server Public Key: "
-read $gate_id
+read gate_id
 
 tput rmcup
 
