@@ -7,12 +7,6 @@
 #       GATE_ID               -   Address of Gateway on Server Subnet/VPN
 #       PUBKEY_SERVERDPOINT   -   Server WireGuard Public Key
 
-if [[ $# -ne 3 ]]
-then
-    echo "Illegal number of parameters"
-    echo "usage : gateway.sh ENDPOINT GATE_ID PUBKEY_SERVER"
-fi
-
 
 endpoint="$1"
 gate_id="$2"
@@ -31,8 +25,14 @@ tput smcup
 
 clear
 
-printf "Enter Gate ID : "
+printf "Enter Endpoint : "
+read $endpoint
 
+printf "Enter Gate ID : "
+read $gate_id
+
+printf "Enter Server Public Key: "
+read $gate_id
 
 tput rmcup
 
