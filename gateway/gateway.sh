@@ -34,7 +34,7 @@ printf "Enter Gate ID : "
 read gate_id
 
 printf "Enter Server Public Key: "
-read gate_id
+read pubkey_server
 
 tput rmcup
 
@@ -46,7 +46,7 @@ Address = 10.0.0."$gate_id"/24
 
 [Peer]
 PublicKey = "$pubkey_server"
-Endpoint = "$endpoint"endpoint:51115
+Endpoint = "$endpoint":51115
 AllowedIPs = 10.0.0.0/24
 " > /etc/wireguard/wg-seraph.conf
 
@@ -57,9 +57,5 @@ sudo ufw allow mosh
 
 wg-quick up wg-seraph
 sudo systemctl enable wg-quick@wg-seraph
-
-
-
-
 
 
