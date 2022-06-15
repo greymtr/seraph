@@ -25,6 +25,8 @@ tput smcup
 
 clear
 
+echo "Public Key : $( cat publickey )"
+
 printf "Enter Endpoint : "
 read $endpoint
 
