@@ -6,16 +6,6 @@
 
 cd ~/seraph-wireguard
 
-printf "Endpoint [ ipv4 ] : \t"
-printf "$( curl -4 -s icanhazip.com )"
-
-printf '\n'
-
-printf "Endpoint [ ipv6 ] : \t"
-printf "$( curl -6 -s icanhazip.com )"
-
-printf '\n'
-
 printf "Enter Public Key of Peer : "
 read pubkey_peer
 
@@ -47,5 +37,16 @@ done
 wg-quick up wg-seraph
 
 clear
+
+printf "Endpoint [ ipv4 ] : \t"
+printf "$( curl -4 -s icanhazip.com )"
+
+printf '\n'
+
+printf "Endpoint [ ipv6 ] : \t"
+printf "$( curl -6 -s icanhazip.com )"
+
+printf '\n'
+
 echo "Gate ID : $i"
 echo "Server Public Key : $(cat publickey)"
