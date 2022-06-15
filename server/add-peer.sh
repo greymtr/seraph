@@ -24,13 +24,9 @@ do
 	if [ ! -e peers/$i ]
 	then
 		ip=$i
-		echo "DONE $ip"
 		break
 	fi
-	echo "$i"
 done
-
-echo "Gateway ID : $i"
 
 echo "
 [Peer]
@@ -49,3 +45,7 @@ do
 done
 
 wg-quick up wg-seraph
+
+clear
+echo "Gate ID : $i"
+echo "Server Public Key : $(cat publickey)"
