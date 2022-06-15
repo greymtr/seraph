@@ -7,10 +7,10 @@
 cd ~/seraph-wireguard
 
 printf "Endpoint [ ipv4 ] : \t"
-printf "$( curl -4 -q icanhazip.com )"
+printf "$( curl -4 -s icanhazip.com )"
 
 printf "Endpoint [ ipv6 ] : \t"
-printf "$( curl -6 -q icanhazip.com )"
+printf "$( curl -6 -s icanhazip.com )"
 
 printf "Enter Public Key of Peer : "
 read pubkey_peer
