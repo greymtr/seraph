@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-
-#usage : first arg is dev id
 
 while true; 
 do 

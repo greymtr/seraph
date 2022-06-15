@@ -46,6 +46,8 @@ http.createServer(function (req, res) {
 		
 		
 		const req2 = http.request(options, res2 => {
+		console.log(`statusCode: ${res2.statusCode}`)
+
 		res2.on('data', d => {
 			process.stdout.write(d)
 		})
