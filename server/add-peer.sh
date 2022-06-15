@@ -6,7 +6,8 @@
 
 cd ~/seraph-wireguard
 
-pubkey_peer="$1"
+printf "Enter Public Key of Peer : "
+read pubkey_peer
 
 for i in {2..255}
 do
