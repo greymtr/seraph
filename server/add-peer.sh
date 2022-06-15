@@ -24,8 +24,10 @@ do
 	if [ ! -e peers/$i ]
 	then
 		ip=$i
+		echo "DONE $ip"
 		break
 	fi
+	echo "$i"
 done
 
 echo "Gateway ID : $i"
