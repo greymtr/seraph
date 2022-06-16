@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+
+
+cd ~/seraph-wireguard
+
 wg-quick down wg-seraph
 
 cp head-config /etc/wireguard/wg-seraph.conf
