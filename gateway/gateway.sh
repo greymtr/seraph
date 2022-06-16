@@ -42,12 +42,12 @@ tput rmcup
 touch /etc/wireguard/wg-seraph.conf
 echo "[Interface]
 PrivateKey = "$(cat privatekey)"
-Address = 10.0.0."$gate_id"/24
+Address = 10.0.0."$gate_id"/32
 
 [Peer]
 PublicKey = "$pubkey_server"
 Endpoint = "$endpoint":51115
-AllowedIPs = 10.0.0."$gate_id"/32
+AllowedIPs = 10.0.0.0/24
 " > /etc/wireguard/wg-seraph.conf
 
 sudo ufw allow 22/tcp
