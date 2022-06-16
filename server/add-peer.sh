@@ -21,7 +21,7 @@ done
 echo "
 [Peer]
 PublicKey = "$pubkey_peer"
-AllowedIPs = 10.0.0."$ip"/24
+AllowedIPs = 10.0.0."$ip"/32
 " > peers/$ip
 
 wg-quick down wg-seraph
