@@ -47,7 +47,7 @@ Address = 10.0.0."$gate_id"/24
 [Peer]
 PublicKey = "$pubkey_server"
 Endpoint = "$endpoint":51115
-AllowedIPs = 10.0.0.0/24
+AllowedIPs = 10.0.0."$gate_id"/32
 " > /etc/wireguard/wg-seraph.conf
 
 sudo ufw allow 22/tcp

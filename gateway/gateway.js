@@ -63,23 +63,23 @@ http.createServer(function (req, res) {
 		var device_id=decodeURI(base_path[3]);
 		var port=decodeURI(base_path[3]);
 		var data=decodeURI(base_path[4]);
-		var server_ip = "192.168.1."+device_id
+		var end_ip = "192.168.1."+device_id
 
 		var options = {
 			hostname: '0.0.0.0',
 			port: 9090,
-			path: '/s/'+device_id+'/'+port+'/'+data,
+			path: '/'+port+'/'+data,
 			method: 'GET'
 		}
 		
-		options.hostname = server_ip;
+		options.hostname = end_ip;
 		
 		
 		const req2 = http.request(options, res2 => {
-		res2.on('data', d => {
-			process.stdout.write(d)
+			res2.on('data', d => {
+				process.stdout.write(d)
+			})
 		})
-	})
 
 		req2.on('error', error => {
 			console.error(error)
