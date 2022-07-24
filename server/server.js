@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
 
 	//format : 
 	//	::::::/r/devid/port/data			[ sent by gateway ]
-	//	::::::/s/gateid/devid/port/data		[ sent by server ]
+	//	::::::/s/gateid/devid/port/data		[ sent by browser ]
 
 
 	var command=decodeURI(base_path[1]);
@@ -33,10 +33,44 @@ http.createServer(function (req, res) {
 		gate_id=(ip.split(".")[ip.split(".").length - 1]);
 		console.log("received :\t" + gate_id +"\t" + device_id + "\t" + port +"\t" + data );
 
-		
+		fs.appendFile('log.csv', gate_id +"," + device_id + "," + port +"," + data, (err) => {
+			if (err) {
+				throw err;
+			}
+		});
 
 		res.writeHead(200, {'Content-Type': 'text/plain'});
 		return res.end();
+	}
+	else if( command == "s" )
+	{
+		var gate_id=decodeURI(base_path[2]);
+		var device_id=decodeURI(base_path[3]);
+		var port=decodeURI(base_path[4]);
+		var data=decodeURI(base_path[5]);
+		var gate_ip = "10.0.0."+gate_id
+
+		var options = {
+			hostname: '0.0.0.0',
+			port: 9090,
+			path: '/'+port+'/'+data,
+			method: 'GET'
+		}
+		
+		options.hostname = gate_ip;
+		
+		
+		const req2 = http.request(options, res2 => {
+			res2.on('data', d => {
+				process.stdout.write(d)
+			})
+		})
+
+		req2.on('error', error => {
+			console.error(error)
+		})
+
+		req2.end()
 	}
 	else
 	{

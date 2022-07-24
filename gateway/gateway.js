@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
 	var base_path = q.pathname.split("/");
 
 	//format : 
-	//	:/r/port/data			[ sent by endpoint to server ]	receive
+	//	:/r/port/data			[ sent by endpoint t`1o server ]	receive
 	//	:/s/devid/port/data		[ sent by server to endpoint ]	send
 
 	var command=decodeURI(base_path[1]);
@@ -60,7 +60,7 @@ http.createServer(function (req, res) {
 	}
 	else if( command == "s" )
 	{
-		var device_id=decodeURI(base_path[3]);
+		var device_id=decodeURI(base_path[2]);
 		var port=decodeURI(base_path[3]);
 		var data=decodeURI(base_path[4]);
 		var end_ip = "192.168.1."+device_id

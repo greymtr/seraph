@@ -27,6 +27,7 @@ cp /etc/wireguard/wg-seraph.conf head-config
 
 sudo ufw allow 22/tcp
 sudo ufw allow 51115/udp
+sudo ufw allow 8888/tcp
 sudo ufw enable
 sudo ufw allow mosh
 
