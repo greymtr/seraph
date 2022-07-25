@@ -13,7 +13,7 @@ gate_id="$2"
 pubkey_server="$3"
 
 sudo apt update
-sudo apt -y install mosh wireguard iptables ufw netcat git
+sudo apt -y install mosh wireguard iptables ufw netcat git nodejs
 
 mkdir ~/seraph-wireguard
 cd ~/seraph-wireguard
@@ -52,7 +52,9 @@ AllowedIPs = 10.0.0.0/24
 
 sudo ufw allow 22/tcp
 sudo ufw allow 51115/udp
-sudo ufw allow 8888/tcp
+sudo ufw allow 8888
+sudo ufw allow 8080
+sudo ufw allow 9090
 sudo ufw enable
 sudo ufw allow mosh
 

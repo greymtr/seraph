@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt -y install mosh wireguard python3-pip iptables ufw git
+sudo apt -y install mosh wireguard python3-pip iptables ufw git nodejs
 
 pip3 install statsmodels numpy pandas Flask matplotlib
 
@@ -27,7 +27,9 @@ cp /etc/wireguard/wg-seraph.conf head-config
 
 sudo ufw allow 22/tcp
 sudo ufw allow 51115/udp
-sudo ufw allow 8888/tcp
+sudo ufw allow 8888
+sudo ufw allow 9090
+sudo ufw allow 8080
 sudo ufw enable
 sudo ufw allow mosh
 
